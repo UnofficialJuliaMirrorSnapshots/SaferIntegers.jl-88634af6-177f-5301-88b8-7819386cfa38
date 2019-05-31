@@ -34,11 +34,22 @@ function abs(x::T) where T<:SafeSigned
 end  
 abs(x::T) where T<:SafeUnsigned = x
 
+@inline function Base.:(~)(x::T) where T<:SafeSigned
+    return safeint(~(baseint(x)))
+end
+
+@inline function Base.:(~)(x::T) where T<:SafeUnsigned
+    return safeint(~(baseint(x)))
+end
+
 @inline function Base.:(-)(x::T) where T<:SafeSigned
   x === typemin(x) && throw(OverflowError("cannot negate typemin"))
   return safeint(-(baseint(x)))
 end  
-@inline Base.:(-)(x::T) where T<:SafeUnsigned = safeint(-baseint(x))
+
+@inline function Base.:(-)(x::T) where T<:SafeUnsigned
+    throw(OverflowError("cannot negate unsigned type"))
+end
 
 @inline function copysign(x::T, y::T) where T<:SafeSigned
   return safeint(baseint( signbit(y) ? -abs(x) : abs(x) ))
