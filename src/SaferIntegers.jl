@@ -3,14 +3,15 @@ module SaferIntegers
 export SafeInteger, SafeSigned, SafeUnsigned,
        SafeInt, SafeInt8, SafeInt16, SafeInt32, SafeInt64, SafeInt128,
        SafeUInt, SafeUInt8, SafeUInt16, SafeUInt32, SafeUInt64, SafeUInt128,
-       @saferintegers
+       @saferintegers,
+       SafeRational
 
 import Base.Checked: checked_neg, checked_abs, checked_add, checked_sub, checked_mul,
                      checked_div, checked_rem, checked_fld, checked_mod, checked_cld,
                      add_with_overflow, sub_with_overflow, mul_with_overflow
 
 import Base: promote_rule,
-    string, bitstring, show, parse, tryparse,
+    string, bitstring, show, repr, parse, tryparse,
     (~), (&), (|), (⊻), (>>>), (>>), (<<),
     (<), (<=), (==), (!=), (>=), (>),
     isequal, isless,
@@ -36,8 +37,9 @@ include("parse.jl")
 include("rand.jl")
 include("cover.jl")
 
-
 include("SaferIntTypes.jl")
 using .SaferIntTypes
+
+include("SaferRationalTypes.jl")
 
 end # module SaferIntegers

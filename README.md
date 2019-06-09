@@ -55,13 +55,15 @@ There are security implications for integer overflow in certain situations.
 
 ### What Does This Package Offer?
 
-- **SaferIntegers** lets you work more cleanly and always alerts otherwise silent problems.
+- _SaferIntegers_ let you work more cleanly and always alerts otherwise silent problems.
 
 - This package is designed for easy use and written to be performant in many sorts of use.
 
 - All exported types are stable (e.g. `typeof(SafeInt32 + 1) == SafeInt32`)
 
-- Using **SaferIntegers** can preclude some known ways that insecure systems are breached.
+- Using _SaferIntegers_ can preclude some known ways that insecure systems are breached.
+
+- Safer Rationals just work: `SafeRational(161803398875,100000000000)`
 
 ### Test code for integer safety
 
@@ -110,6 +112,7 @@ should a calculation encouter an overflow or underflow,
 - `SafeInt8`, `SafeInt16`, `SafeInt32`, `SafeInt64`, `SafeInt128`    
 - `SafeUInt8`, `SafeUInt16`, `SafeUInt32`, `SafeUInt64`, `SafeUInt128`   
 - `SafeSigned`, `SafeUnsigned`, `SafeInteger`
+- `SafeRational`
 
 They check for overflow, even when multiplied by the usual Int and UInt types.    
 Otherwise, they should be unsurprising.
