@@ -86,7 +86,7 @@ Where you had used`Int` or `UInt` now use `SafeInt` or `SafeUInt` and similarly
 with the bitsize-named versions.    
 
 SafeInt and SafeUInt give you these arithmetic operators:    
-`+`, `-`, `*`, `div`, `rem`, `fld`, `mod`, `^`    
+`+`, `-`, `*`, `div`, `rem`, `fld`, `mod`, `fld1`, `mod1`, `^`   
 which have become overflow and underflow aware.
 
 The Int and UInt types can fail at simple arithmetic        
@@ -104,8 +104,10 @@ should a calculation encouter an overflow or underflow,
 > Use the package:  `using SaferIntegers`     
 
 - These functions check for overflow/underflow automatically:    
-    - abs, (neg), (-), (+), (*), div, fld, cld, rem, mod, (^)
-    - so does (/), before converting to Float64
+    - `abs`, `neg`, `div`, `fld`, `fld1`, `cld`, `rem`, `mod`, `mod1`
+    - `divrem`, `fldmod`, `fldmod1`
+    - `-`, `+`, `*`, `^`
+    - so does `/`, before converting to Float64
 
 ## Exported Types and Constructors / Converters
 
@@ -135,7 +137,8 @@ Otherwise, they should be unsurprising.
 - `ndigits0z`
 - `isless`, `isequal`, `<=`, `<`, `==`, `!=`, `>=`, `>`
 - `>>>`, `>>`, `<<`, `+`, `-`, `*`, `\`, `^`
-- `div`, `fld`, `cld`, `rem`, `mod`
+- `div`, `fld`, `fld1`, `cld`, `rem`, `mod`, `mod1`
+- `divrem`, `fldmod`, `fldmod1`
 - `zero`, `one`
 - `typemin`, `typemax`, `widen` 
 
